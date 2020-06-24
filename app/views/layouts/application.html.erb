@@ -11,6 +11,10 @@
 
   <body>
     <div id="slidemenu">
+      <div class="nav navbar-nav navbar-left">
+        <span>Bookers</span>
+        
+      </div>
   <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
     <% if user_signed_in? %>
     <li class="">
@@ -41,6 +45,10 @@
     <% end %>
   </ul>
 </div>
+
     <%= yield %>
   </body>
+  <footer>
+  <p>CopyRight Infratop.inc</p>
+</footer>
 </html>
