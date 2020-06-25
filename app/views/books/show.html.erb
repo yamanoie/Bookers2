@@ -1,5 +1,23 @@
+<% if flash[:sucess_message] %>
+      <div class="flash">
+        <%= flash[:sucess_message] %>
+      </div>
+ <% end %>
+
+
+ <% if @user.errors.any? %>
+  <div class="alert alert-warning">
+    <ul>
+    	<%= @user.errors.count %>errors prohibited this obj from being saved
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <h2>Books detail</h2>
-<%= render 'users/list', user: @book.user, book: @book_new %>
+<%= render 'users/list', user: @book.user, book: @new_book %>
 <%= link_to user_path(@user) do %>
 	<%= attachment_image_tag @user, :profile_image, :fill, 60,60, fallback: "no_image.jpg", size:'50x50'%>
 	<p><%= @user.name %></p>
@@ -7,7 +25,6 @@
 <p><%= @book.title %></p>
 <p><%= @book.body %></p>
 
-<!-- link_to user-show -->
 
 <table>
 	<thead>
