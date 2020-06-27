@@ -19,8 +19,9 @@
 <div class="row">
 
 	<!-- ボタン -->
+<% if user.id == current_user.id %>
 <%=link_to "USER EDIT", edit_user_path(current_user) %>
-
+<% end %>
 </div>
 
 <h2>New book</h2>

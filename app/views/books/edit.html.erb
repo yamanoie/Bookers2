@@ -1,0 +1,16 @@
+<h2>Editing book</h2>
+<!-- form_for -->
+<%= form_for(@book) do |f| %>
+<div class="field row">
+    <%= f.label :title %><br/>
+    <%= f.text_field :title, autofocus: true, autocomplete: "title" %>
+  </div>
+
+<div class="field row">
+    <%= f.label :opinion %><br/>
+    <%= f.text_field :body %>
+  </div>
+<div class="actions row">
+<%= f.submit 'Update Book' %>
+</div>
+<% end %>
