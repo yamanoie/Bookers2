@@ -1,3 +1,5 @@
+<div class="container">
+	<div class="row">
 <% if flash[:sucess_message] %>
       <div class="flash">
         <%= flash[:sucess_message] %>
@@ -7,14 +9,16 @@
 
 
 
-<h2>Books</h2>
 
+
+	<h2>Books</h2>
+<div class="col-xs-3">
 <%= render 'users/list', user: @user, book: Book.new %>
+</div>
+<div class="col-xs-9">
 
 
-
-
-<table>
+<table class="table table-hover table-inverse">
 	<thead>
 		<tr>
 			<th></th>
@@ -35,3 +39,9 @@
 		<% end %>
 	</tbody>
 </table>
+</div>
+</div>
+	
+</div>
+
+

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	before_action :authenticate_user!
 	def new
 	end
 	def create
@@ -9,6 +10,9 @@ class UsersController < ApplicationController
 		@user = current_user
 	end
 	def show
+		if user_signed_in?
+			flash[:sucess_message] = "Welcome!You have signed up successfully"
+		end
 		@user = User.find(params[:id])
 		@new_book = Book.new
 		@books = @user.books
