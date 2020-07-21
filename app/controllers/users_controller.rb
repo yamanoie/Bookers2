@@ -2,19 +2,22 @@ class UsersController < ApplicationController
 	before_action :authenticate_user!
 	def new
 	end
+
 	def create
 	end
+
 	def index
 		@users = User.all
 		@book = Book.new
 		@user = current_user
 	end
+
 	def show
-		
 		@user = User.find(params[:id])
 		@new_book = Book.new
 		@books = @user.books
 	end
+
 	def edit
 		@user = User.find(params[:id])
 		if @user.id != current_user.id
@@ -30,6 +33,17 @@ class UsersController < ApplicationController
 		else
 			render :edit
 		end
+	end
+
+	def follows
+		@user = User.find(params[:id])
+		@users = @user.followings
+
+	end
+
+	def followers
+		@user = User.find(params[:id])
+		@users = @user.followers
 	end
 
 private
