@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+	get "/search" => "searches#search"
 	devise_for :users
 	resources :books do
 		resources :book_comments, only: [:create, :destroy]
